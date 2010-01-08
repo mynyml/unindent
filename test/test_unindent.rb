@@ -1,49 +1,20 @@
-require 'pathname'
-root  =  Pathname(__FILE__).dirname.parent
-require root.join('test/test_helper')
-require root.join('lib/unindent')
+require 'test/test_helper'
 
-class UnindentTest < Test::Unit::TestCase
-  context "Unindent" do
-    context "simple indentation" do
-      test "removes space indentation" do
-        source = "\s\sabc"
-        expect = "abc"
-        source.unindent.should be(expect)
-      end
-      test "removes tab indentation" do
-        source = "\tabc"
-        expect = "abc"
-        source.unindent.should be(expect)
-      end
-      test "removes space/tab indentation" do
-        source = "\t\s\sabc"
-        expect = "abc"
-        source.unindent.should be(expect)
-      end
-    end
-    context "multiple lines" do
-      test "removes indentation" do
-        source = "\tabc\n\tabc"
-        expect = "abc\nabc"
-        source.unindent.should be(expect)
-      end
-      test "keeps relative indentation" do
-        source = "\tabc\n\t\tabc"
-        expect = "abc\n\tabc"
-        source.unindent.should be(expect)
-      end
-      test "ignores blank lines for indent calculation" do
-        source = "\n\tabc\n\n\t\tabc\n"
-        expect = "\nabc\n\n\tabc\n"
-        source.unindent.should be(expect)
-      end
-    end
-    test "modifies string in-place" do
-      source = "\s\sabc"
-      expect = "abc"
-      source.unindent!
-      source.should be(expect)
-    end
-  end
-end
+## simple indentation
+
+assert { "\s\sabc"  .unindent == "abc" } # removes space indentation
+assert { "\tabc"    .unindent == "abc" } # removes tab indentation
+assert { "\t\s\sabc".unindent == "abc" } # removes space/tab indentation
+
+## multi-line indentation
+
+assert { "\tabc\n\tabc"        .unindent == "abc\nabc"         } # removes space/tab indentation
+assert { "\tabc\n\t\tabc"      .unindent == "abc\n\tabc"       } # keeps relative indentation
+assert { "\n\tabc\n\n\t\tabc\n".unindent == "\nabc\n\n\tabc\n" } # ignores blank lines for indent calculation
+
+## unindent!
+
+# test: modifies string in place
+source = "\s\sabc"
+source.unindent!
+assert { source == "abc" }

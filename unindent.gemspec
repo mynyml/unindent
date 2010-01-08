@@ -10,4 +10,6 @@ Gem::Specification.new do |s|
   s.has_rdoc            =  false
   s.require_path        = "lib"
   s.files               =  File.read("Manifest").strip.split("\n")
+
+  s.add_development_dependency 'nanotest'
 end
