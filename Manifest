@@ -3,8 +3,7 @@ LICENSE
 Manifest
 README
 Rakefile
-examples/simple.rb
-examples/simple2.rb
+examples.rb
 lib/unindent.rb
 specs.watchr
 test/test_helper.rb

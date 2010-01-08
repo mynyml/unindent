@@ -1,6 +1,5 @@
 require 'pathname'
-root  =  Pathname(__FILE__).dirname.parent
-require root.join('lib/unindent')
+require  Pathname(__FILE__).dirname.parent + 'lib/unindent'
 
 class Profile
   def default_text
@@ -12,4 +11,10 @@ class Profile
 end
 
 puts Profile.new.default_text
+#      Anonymous Coward
+#        - Community Guest
+
 puts Profile.new.default_text.unindent
+#Anonymous Coward
+#  - Community Guest
+
