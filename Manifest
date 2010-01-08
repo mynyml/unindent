@@ -1,7 +1,7 @@
 .gitignore
 LICENSE
 Manifest
-README
+README.md
 Rakefile
 examples.rb
 lib/unindent.rb
