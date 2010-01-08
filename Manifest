@@ -1,0 +1,12 @@
+.gitignore
+LICENSE
+Manifest
+README
+Rakefile
+TODO
+examples/simple.rb
+examples/simple2.rb
+lib/unindent.rb
+test/test_helper.rb
+test/test_unindent.rb
+unindent.gemspec
