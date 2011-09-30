@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name                = "unindent"
-  s.version             = "0.9"
+  s.version             = "1.0"
   s.summary             = "Ruby method to unindent strings."
   s.description         = "Ruby method to unindent strings. Useful for multiline strings embeded in already indented code."
   s.author              = "mynyml"
