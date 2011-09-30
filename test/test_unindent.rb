@@ -5,6 +5,7 @@ require 'test/test_helper'
 assert { "\s\sabc"  .unindent == "abc" } # removes space indentation
 assert { "\tabc"    .unindent == "abc" } # removes tab indentation
 assert { "\t\s\sabc".unindent == "abc" } # removes space/tab indentation
+assert { ""         .unindent == ""    } # handles empty strings
 
 ## multi-line indentation
 
