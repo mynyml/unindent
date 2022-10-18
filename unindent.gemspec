@@ -6,6 +6,7 @@ Gem::Specification.new do |s|
   s.author              = "mynyml"
   s.email               = "mynyml@gmail.com"
   s.homepage            = "http://github.com/mynyml/unindent"
+  s.license             = "MIT"
   s.rubyforge_project   = "unindent"
   s.has_rdoc            =  false
   s.require_path        = "lib"
