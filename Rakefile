@@ -1,7 +1,3 @@
-def gem_opt
-  defined?(Gem) ? "-rubygems" : ""
-end
-
 # --------------------------------------------------
 # Tests
 # --------------------------------------------------
@@ -10,7 +6,7 @@ task(:default => :'test:all')
 namespace(:test) do
   desc "Run tests"
   task(:all) do
-    exit system("ruby #{gem_opt} -I.:lib test/test_unindent.rb")
+    exit system("ruby -I.:lib test/test_unindent.rb")
   end
 
   desc "Run tests on multiple ruby versions (requires rvm)"
